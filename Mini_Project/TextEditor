@@ -1,0 +1,239 @@
+import customtkinter as ctk
+from tkinter import messagebox
+
+ctk.set_appearance_mode("Dark")
+ctk.set_default_color_theme("blue")
+
+
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        return None
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def get_all(self):
+        return self.items.copy()
+
+
+class TextEditorUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Stack Text Editor - Production UI")
+        self.root.geometry("1100x700")
+        self.root.minsize(950, 600)
+
+        self.current_text = ""
+        self.history_stack = Stack()
+
+        self.build_layout()
+
+    def build_layout(self):
+        title = ctk.CTkLabel(
+            self.root,
+            text="📝 Stack-Based Text Editor",
+            font=("Segoe UI", 28, "bold")
+        )
+        title.pack(pady=(20, 10))
+
+        main_container = ctk.CTkFrame(self.root, fg_color="transparent")
+        main_container.pack(fill="both", expand=True, padx=20, pady=10)
+
+        left_panel = ctk.CTkFrame(main_container)
+        left_panel.pack(side="left", fill="both", expand=True, padx=10, pady=10)
+
+        right_panel = ctk.CTkFrame(main_container, width=280)
+        right_panel.pack_propagate(False)
+        right_panel.pack(side="right", fill="y", padx=10, pady=10)
+
+        display_label = ctk.CTkLabel(
+            left_panel, 
+            text="Current Editor Canvas", 
+            font=("Segoe UI", 16, "bold")
+        )
+        display_label.pack(anchor="w", padx=15, pady=(15, 5))
+
+        self.display_view = ctk.CTkTextbox(
+            left_panel,
+            font=("Consolas", 16),
+            wrap="word",
+            fg_color="#1A1A1A",
+            border_width=1,
+            border_color="#333333"
+        )
+        self.display_view.pack(fill="both", expand=True, padx=15, pady=5)
+        self.display_view.insert("1.0", "--- Text Editor is Empty ---")
+        self.display_view.configure(state="disabled")
+
+        input_label = ctk.CTkLabel(
+            left_panel, 
+            text="1. Add New Text String", 
+            font=("Segoe UI", 14, "bold"),
+            text_color="#3B82F6"
+        )
+        input_label.pack(anchor="w", padx=15, pady=(15, 0))
+
+        input_frame = ctk.CTkFrame(left_panel, fg_color="transparent")
+        input_frame.pack(fill="x", padx=15, pady=(5, 15))
+
+        self.input_field = ctk.CTkEntry(
+            input_frame,
+            placeholder_text="Type the text strings you want to append here...",
+            font=("Segoe UI", 14),
+            height=40
+        )
+        self.input_field.pack(side="left", fill="x", expand=True, padx=(0, 10))
+        self.input_field.bind("<Return>", lambda e: self.add_text_operation())
+
+        add_btn = ctk.CTkButton(
+            input_frame,
+            text="➕ Append Text",
+            font=("Segoe UI", 14, "bold"),
+            fg_color="#3B82F6",
+            hover_color="#2563EB",
+            height=40,
+            command=self.add_text_operation
+        )
+        add_btn.pack(side="right")
+
+        control_label = ctk.CTkLabel(
+            left_panel, 
+            text="Menu Controls", 
+            font=("Segoe UI", 14, "bold")
+        )
+        control_label.pack(anchor="w", padx=15, pady=(5, 0))
+
+        btn_frame = ctk.CTkFrame(left_panel, fg_color="transparent")
+        btn_frame.pack(fill="x", padx=15, pady=(5, 20))
+
+        undo_btn = ctk.CTkButton(
+            btn_frame,
+            text="↩ 3. Undo Operation",
+            font=("Segoe UI", 14, "bold"),
+            fg_color="#10B981",
+            hover_color="#059669",
+            height=40,
+            command=self.undo_operation
+        )
+        undo_btn.pack(side="left", fill="x", expand=True, padx=(0, 10))
+
+        exit_btn = ctk.CTkButton(
+            btn_frame,
+            text="🚪 4. Exit Application",
+            font=("Segoe UI", 14, "bold"),
+            fg_color="#EF4444",
+            hover_color="#DC2626",
+            height=40,
+            command=self.exit_application
+        )
+        exit_btn.pack(side="right", fill="x", expand=True, padx=(10, 0))
+
+        stats_title = ctk.CTkLabel(
+            right_panel,
+            text="Data Structures Stats",
+            font=("Segoe UI", 18, "bold")
+        )
+        stats_title.pack(pady=(20, 15))
+
+        self.char_lbl = ctk.CTkLabel(right_panel, text="Total Characters: 0", font=("Segoe UI", 14))
+        self.char_lbl.pack(pady=4)
+
+        self.word_lbl = ctk.CTkLabel(right_panel, text="Total Words: 0", font=("Segoe UI", 14))
+        self.word_lbl.pack(pady=4)
+
+        self.stack_lbl = ctk.CTkLabel(right_panel, text="Stack Frame Count: 0", font=("Segoe UI", 14), text_color="#10B981")
+        self.stack_lbl.pack(pady=4)
+
+        history_title = ctk.CTkLabel(
+            right_panel,
+            text="LIFO Undo Stack History",
+            font=("Segoe UI", 16, "bold")
+        )
+        history_title.pack(pady=(25, 5))
+
+        self.history_box = ctk.CTkTextbox(
+            right_panel,
+            font=("Consolas", 12),
+            fg_color="#141416",
+            border_width=1,
+            border_color="#252526"
+        )
+        self.history_box.pack(fill="both", expand=True, padx=15, pady=15)
+        self.history_box.configure(state="disabled")
+
+        self.root.bind("<Control-z>", lambda e: self.undo_operation())
+
+    def add_text_operation(self):
+        new_input = self.input_field.get().strip()
+        if not new_input:
+            messagebox.showwarning("Input Error", "Please write something in the input box to add.")
+            return
+
+        self.history_stack.push(self.current_text)
+
+        if self.current_text:
+            self.current_text += " " + new_input
+        else:
+            self.current_text = new_input
+
+        self.input_field.delete(0, "end")
+        self.refresh_display()
+
+    def undo_operation(self):
+        if self.history_stack.is_empty():
+            messagebox.showinfo("Stack Status", "Nothing to Undo! No previous states available.")
+            return
+
+        self.current_text = self.history_stack.pop()
+        self.refresh_display()
+
+    def refresh_display(self):
+        self.display_view.configure(state="normal")
+        self.display_view.delete("1.0", "end")
+        
+        if not self.current_text:
+            self.display_view.insert("1.0", "--- Text Editor is Empty ---")
+        else:
+            self.display_view.insert("1.0", self.current_text)
+            
+        self.display_view.configure(state="disabled")
+
+        self.history_box.configure(state="normal")
+        self.history_box.delete("1.0", "end")
+        
+        stack_elements = self.history_stack.get_all()
+        for index, historical_state in enumerate(reversed(stack_elements), start=1):
+            clean_preview = historical_state.replace("\n", " ").strip()
+            if not clean_preview:
+                clean_preview = "[Initial Empty State]"
+            elif len(clean_preview) > 22:
+                clean_preview = clean_preview[:22] + "..."
+                
+            self.history_box.insert("end", f"State {len(stack_elements)-index+1}: {clean_preview}\n\n")
+            
+        self.history_box.configure(state="disabled")
+
+        char_count = len(self.current_text)
+        word_count = len(self.current_text.split()) if self.current_text else 0
+        
+        self.char_lbl.configure(text=f"Total Characters: {char_count}")
+        self.word_lbl.configure(text=f"Total Words: {word_count}")
+        self.stack_lbl.configure(text=f"Stack Frame Count: {len(stack_elements)}")
+
+    def exit_application(self):
+        if messagebox.askyesno("Exit Confirmation", "Are you sure you want to close the editor?"):
+            self.root.destroy()
+
+
+if __name__ == "__main__":
+    app_root = ctk.CTk()
+    editor_app = TextEditorUI(app_root)
+    app_root.mainloop()
