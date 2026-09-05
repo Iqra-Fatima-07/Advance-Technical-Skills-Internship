@@ -7,7 +7,7 @@ Given an integer array and a target value, find two distinct elements whose sum 
 
 The same array position cannot be used twice. Exactly one valid pair is guaranteed.
 
-INPUT FORMAT
+INPUT FORMAT:
 
 Line 1: N T
 Line 2: N space-separated integers
@@ -17,7 +17,7 @@ SAMPLE INPUT
 6 9
 2 7 11 15 3 4
 
-OUTPUT FORMAT
+OUTPUT FORMAT:
 
 Print the two zero-based indices in increasing order.
 
@@ -25,7 +25,7 @@ SAMPLE OUTPUT
 
 0 1
 
-EXPLANATION
+EXPLANATION:
 
 A[0] + A[1] = 2 + 7 = 9.
 
