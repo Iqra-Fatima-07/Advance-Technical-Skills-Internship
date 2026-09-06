@@ -54,7 +54,7 @@ length = int(input())
 values = list(map(int, input().split()))
 n = int(input())
 
-# Dummy node makes removing the head easier
+
 dummy = Node(0)
 
 current = dummy
@@ -63,22 +63,21 @@ for value in values:
     current.next = Node(value)
     current = current.next
 
-# Move fast N nodes ahead
+
 fast = dummy
 slow = dummy
 
 for _ in range(n):
     fast = fast.next
 
-# Move both pointers until fast reaches the last node
 while fast.next is not None:
     fast = fast.next
     slow = slow.next
 
-# Remove the Nth node from the end
+
 slow.next = slow.next.next
 
-# Print the resulting list
+
 result = []
 
 current = dummy.next
