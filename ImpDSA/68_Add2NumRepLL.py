@@ -13,7 +13,7 @@ The digits are stored from most significant to least significant.
 
 Add the two numbers and return the result as a linked list in the same format.
 
-Input Format
+Input Format:
 
 First line contains N.
 
@@ -23,27 +23,27 @@ Third line contains M.
 
 Fourth line contains M digits of the second number.
 
-Output Format
+Output Format:
 
 Print the digits of the resulting number.
 
-Constraints
+Constraints:
 
 1 ≤ N, M ≤ 10^5
 Each digit is between 0 and 9.
 
-Sample Input
+Sample Input:
 
 3
 7 2 4
 3
 5 6 4
 
-Sample Output
+Sample Output:
 
 1 2 8 8
 
-Sample Explanation
+Sample Explanation:
 
 724 + 564 = 1288
 '''

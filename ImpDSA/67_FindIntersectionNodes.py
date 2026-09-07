@@ -23,27 +23,27 @@ Third line contains M values for the second list.
 
 Fourth line contains integer P, representing the index in the first list from which the second list joins.
 
-Output Format
+Output Format:
 
 Print the value of the first common node, or -1.
 
-Constraints
+Constraints:
 
 1 ≤ N, M ≤ 10^5
 -1 ≤ P < N
 
-Sample Input
+Sample Input:
 
 5 4
 4 1 8 4 5
 5 6 8 4
 2
 
-Sample Output
+Sample Output:
 
 8
 
-Sample Explanation
+Sample Explanation:
 
 The second list joins the first list at node 8. Therefore, 8 is the first common node.
 '''
