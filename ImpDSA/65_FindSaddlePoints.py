@@ -5,19 +5,19 @@ Difficulty: Medium
 
 Topic: Matrix, Arrays
 
-Problem Statement
+Problem Statement:
 
 An element is called a saddle point if it is the smallest element in its row and simultaneously the largest element in its column.
 
 Find all saddle points in the given matrix.
 
-Input Format
+Input Format:
 
 First line contains N and M.
 
 Next N lines contain M integers.
 
-Output Format
+Output Format:
 
 Print each saddle point as:
 
@@ -27,19 +27,19 @@ Use zero-based row and column indices.
 
 If no saddle point exists, print -1.
 
-Constraints
+Constraints:
 
 1 ≤ N, M ≤ 500
 -10^6 ≤ A[i][j] ≤ 10^6
 
-Sample Input
+Sample Input:
 
 3 3
 3 1 4
 5 6 7
 8 2 9
 
-Sample Output
+Sample Output:
 
 -1
 '''

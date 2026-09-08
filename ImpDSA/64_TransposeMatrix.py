@@ -5,34 +5,34 @@ Difficulty: Medium
 
 Topic: Matrix, Arrays
 
-Problem Statement
+Problem Statement:
 
 Given an N × M matrix, construct its transpose.
 
 In the transpose, the element at position (i,j) becomes the element at (j,i).
 
-Input Format
+Input Format:
 
 First line contains N and M.
 
 Next N lines contain M integers.
 
-Output Format
+Output Format:
 
 Print the transposed matrix with M rows and N columns.
 
-Constraints
+Constraints:
 
 1 ≤ N, M ≤ 500
 -10^6 ≤ A[i][j] ≤ 10^6
 
-Sample Input
+Sample Input:
 
 2 3
 1 2 3
 4 5 6
 
-Sample Output
+Sample Output:
 
 1 4
 2 5
