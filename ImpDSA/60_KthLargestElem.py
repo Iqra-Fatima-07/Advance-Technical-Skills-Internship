@@ -3,7 +3,7 @@ Problem 60 — Kth Largest Element
 
 Topic: Heap, Arrays
 
-Problem Statement
+Problem Statement:
 
 Given an unsorted array and an integer K, find the Kth largest element.
 
@@ -11,7 +11,7 @@ Duplicate values are counted separately.
 
 For example, in [5, 3, 5, 2], the 2nd largest element is 5.
 
-Input Format
+Input Format:
 
 First line contains integer N.
 
@@ -19,27 +19,27 @@ Second line contains N integers.
 
 Third line contains integer K.
 
-Output Format
+Output Format:
 
 Print the Kth largest element.
 
-Constraints
+Constraints:
 
 1 ≤ K ≤ N ≤ 10^5
 
 -10^9 ≤ arr[i] ≤ 10^9
 
-Sample Input
+Sample Input:
 
 6
 3 2 1 5 6 4
 2
 
-Sample Output
+Sample Output:
 
 5
 
-Sample Explanation
+Sample Explanation:
 
 The elements in descending order are:
 

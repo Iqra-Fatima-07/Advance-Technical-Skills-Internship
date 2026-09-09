@@ -5,7 +5,7 @@ Difficulty: Medium
 
 Topic: Matrix, Arrays
 
-Problem Statement
+Problem Statement:
 
 Given an N × M matrix, print all its elements in spiral order.
 
@@ -17,29 +17,29 @@ Bottom to top
 
 Continue until every element has been visited.
 
-Input Format
+Input Format:
 
 First line contains N and M.
 
 Next N lines contain M integers each.
 
-Output Format
+Output Format:
 
 Print all matrix elements in spiral order.
 
-Constraints
+Constraints:
 
 1 ≤ N, M ≤ 500
 -10^6 ≤ A[i][j] ≤ 10^6
 
-Sample Input
+Sample Input:
 
 3 4
 1 2 3 4
 5 6 7 8
 9 10 11 12
 
-Sample Output
+Sample Output:
 
 1 2 3 4 8 12 11 10 9 5 6 7
 '''
