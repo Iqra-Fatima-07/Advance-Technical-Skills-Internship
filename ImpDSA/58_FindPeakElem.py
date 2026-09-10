@@ -3,7 +3,7 @@ Problem 58 — Find Peak Element
 
 Topic: Binary Search, Arrays
 
-Problem Statement
+Problem Statement:
 
 An element is a peak if it is greater than its immediate neighbors.
 
@@ -11,17 +11,17 @@ For the first and last elements, consider the missing neighbor as negative infin
 
 Find any valid peak element and print its index.
 
-Input Format
+Input Format:
 
 First line contains integer N.
 
 Second line contains N integers.
 
-Output Format
+Output Format:
 
 Print the zero-based index of any peak element.
 
-Constraints
+Constraints:
 
 1 ≤ N ≤ 10^5
 
@@ -29,12 +29,12 @@ Adjacent elements are not equal.
 
 -10^9 ≤ arr[i] ≤ 10^9
 
-Sample Input
+Sample Input:
 
 6
 1 3 5 4 2 1
 
-Sample Output
+Sample Output:
 
 2
 '''

@@ -3,13 +3,13 @@ Problem 59 — Merge K Sorted Arrays
 
 Topic: Heap, Arrays
 
-Problem Statement
+Problem Statement:
 
 You are given K sorted arrays. Merge all of them into a single sorted array.
 
 The resulting array must contain every element from every input array.
 
-Input Format
+Input Format:
 
 First line contains integer K.
 
@@ -19,11 +19,11 @@ First line contains its size N.
 
 Second line contains N sorted integers.
 
-Output Format
+Output Format:
 
 Print all elements in sorted order.
 
-Constraints
+Constraints:
 
 1 ≤ K ≤ 100
 
@@ -31,7 +31,7 @@ Total number of elements ≤ 10^5
 
 Each individual array is sorted.
 
-Sample Input
+Sample Input:
 
 3
 3
@@ -41,7 +41,7 @@ Sample Input
 3
 3 6 9
 
-Sample Output
+Sample Output:
 
 1 2 3 4 5 6 7 8 9 10
 '''
