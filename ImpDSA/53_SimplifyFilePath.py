@@ -1,9 +1,11 @@
 '''
-Problem 53 — Simplify a File Path
+Problem 53 :
+
+Simplify a File Path
 
 Topic: Stack, Strings
 
-Problem Statement
+Problem Statement:
 
 A file system path may contain:
 
@@ -19,25 +21,25 @@ Simplify the given absolute path and return its canonical form.
 
 Multiple consecutive / characters should be treated as a single separator.
 
-Input Format
+Input Format:
 
 A single line containing an absolute path.
 
-Output Format
+Output Format:
 
 Print the simplified path.
 
-Constraints
+Constraints:
 
 1 ≤ |path| ≤ 10^5
 
 Path starts with /.
 
-Sample Input
+Sample Input:
 
 /home//user/../documents/./file
 
-Sample Output
+Sample Output:
 
 /home/documents/file
 '''
