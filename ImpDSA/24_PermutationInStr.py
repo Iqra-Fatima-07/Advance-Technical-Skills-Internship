@@ -3,38 +3,38 @@ Problem 24 — Permutation in a String
 
 Topic: Sliding Window / Frequency Counting
 
-Problem Statement
+Problem Statement:
 
 Given two lowercase English strings S and P, determine whether S contains a contiguous substring that is a permutation of P.
 
 A substring is a permutation of P if it has exactly the same characters with exactly the same frequencies, although the order may differ.
 
-Input Format
+Input Format:
 
 The first line contains string S.
 
 The second line contains string P.
 
-Output Format
+Output Format:
 
 Print YES if such a substring exists; otherwise print NO.
 
-Constraints
+Constraints:
 
 1 ≤ |P| ≤ |S| ≤ 2 × 10^5
 
 Both strings contain lowercase English letters.
 
-Sample Input
+Sample Input:
 
 eidbaooo
 ab
 
-Sample Output
+Sample Output:
 
 YES
 
-Sample Explanation
+Sample Explanation:
 
 The substring ba is a permutation of ab, so the answer is YES.
 '''

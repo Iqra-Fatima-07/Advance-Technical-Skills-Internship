@@ -50,7 +50,7 @@ stack = []
 
 for part in path.split('/'):
     if part == '' or part == '.':
-        continue
+        continue  
 
     if part == '..':
         if stack:
