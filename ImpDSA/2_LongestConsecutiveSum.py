@@ -1,35 +1,35 @@
 '''
 2. Longest Consecutive Sequence
 
-HASHING
+HASHING:
 
 Given an unsorted array of integers, find the length of the longest sequence of consecutive integer values.
 
 The elements do not need to be adjacent in the original array. Duplicate values do not increase the sequence length.
 
-INPUT FORMAT
+INPUT FORMAT:
 
 Line 1: N
 Line 2: N integers
 
-SAMPLE INPUT
+SAMPLE INPUT:
 
 6
 100 4 200 1 3 2
 
-OUTPUT FORMAT
+OUTPUT FORMAT:
 
 Print the length of the longest consecutive sequence.
 
-SAMPLE OUTPUT
+SAMPLE OUTPUT:
 
 4
 
-EXPLANATION
+EXPLANATION:
 
 1, 2, 3, 4 form the longest consecutive sequence.
 
-CONSTRAINTS
+CONSTRAINTS:
 
 1 ≤ N ≤ 2 × 10^5
 -10^9 ≤ A[i] ≤ 10^9
