@@ -6,26 +6,26 @@ PREFIX SUM
 
 Find the maximum length of a contiguous, non-empty subarray whose elements sum to zero.
 
-INPUT FORMAT
+INPUT FORMAT:
 
 Line 1: N
 Line 2: N integers
 
-OUTPUT FORMAT
+OUTPUT FORMAT:
 
 Print the maximum length.
 Print 0 if no valid subarray exists.
 
-SAMPLE INPUT
+SAMPLE INPUT:
 
 6
 15 -2 2 -8 1 7
 
-SAMPLE OUTPUT
+SAMPLE OUTPUT:
 
 5
 
-EXPLANATION
+EXPLANATION:
 
 The subarray [-2, 2, -8, 1, 7] has sum 0 and length 5.
 
@@ -50,5 +50,4 @@ for i in range(n):
         max_length = max(max_length, i - first[prefix_sum])
     else:
         first[prefix_sum] = i
-
 print(max_length)
